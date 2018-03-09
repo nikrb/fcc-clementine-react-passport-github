@@ -9,8 +9,8 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         console.log('auth github response:', json);
-      })
-  }
+      });
+  };
   render() {
     return (
       <div className="App">
