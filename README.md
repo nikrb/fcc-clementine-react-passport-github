@@ -1,10 +1,34 @@
+# React and passport(github)
+
+React frontend grafted onto clementine, because it has passport-github working out of the box. The react frontend errors:
+```
+localhost/:1 Failed to load https://github.com/login/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fauth%2Fgithub%2Fcallback&client_id=73ed69cfe6e65b454229: Redirect from 'https://github.com/login/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fauth%2Fgithub%2Fcallback&client_id=73ed69cfe6e65b454229' to 'https://github.com/login?client_id=73ed69cfe6e65b454229&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3D73ed69cfe6e65b454229%26redirect_uri%3Dhttp%253A%252F%252F127.0.0.1%253A8080%252Fauth%252Fgithub%252Fcallback%26response_type%3Dcode' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+```
+
+Master branch contains the original [clementine-fcc](https://github.com/johnstonbl01/clementinejs-fcc) project.
+
+Develop branch contains the react frontend.
+
+## Setup
+
+To setup the clementine version follow the original instructions (below)
+
+To setup the react frontend version:
+1. checkout develop branch.
+2. install
+  1. cd client
+  2. npm install
+  3. cd ..
+  4. npm install
+3. run npm dev
+
 # Clementine.js FCC Boilerplate
 
 [![Join the chat at https://gitter.im/johnstonbl01/clementinejs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/johnstonbl01/clementinejs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Overview
 
-Clementine.js is a lightweight boilerplate for fullstack JavaScript development which utilizes MongoDB, Express and Node.js. The boilerplate errs on the side of transparency and simplicity, making it an ideal starting point for beginner and seasoned developers alike. 
+Clementine.js is a lightweight boilerplate for fullstack JavaScript development which utilizes MongoDB, Express and Node.js. The boilerplate errs on the side of transparency and simplicity, making it an ideal starting point for beginner and seasoned developers alike.
 
 The [Free Code Camp](http://www.freecodecamp.com) version of Clementine.js is meant for use when completing projects as part of the FCC curriculum. This version includes GitHub authentication using [Passport](http://passportjs.org/).
 
