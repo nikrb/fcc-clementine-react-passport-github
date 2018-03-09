@@ -5,8 +5,10 @@ var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
+var cors = require('cors');
 
 var app = express();
+app.use(cors());
 require('dotenv').config();
 require('./app/config/passport')(passport);
 
