@@ -19,7 +19,10 @@
     "boilerplate"
   ],
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "supervisor -w app -w server.js ./server.js",
+    "client": "cd client && npm start"
   },
   "author": "Blake Johnston",
   "license": "MIT",
@@ -30,5 +33,8 @@
     "mongoose": "^4.1.0",
     "passport": "^0.3.0",
     "passport-github": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
