@@ -3,13 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  onClick = e => {
-    e.preventDefault();
-    fetch('/auth/github')
+  test = () => {
+    fetch('/test', {
+      method: 'get',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'same-origin'
+    })
       .then(res => res.json())
       .then(json => {
-        console.log('auth github response:', json);
+        console.log('test auth route response:', json);
       });
+  };
+  onClick = e => {
+    e.preventDefault();
+    window.location.href = 'http://localhost:8080/auth/github';
   };
   render() {
     return (
@@ -21,6 +28,7 @@ class App extends Component {
         <p className="App-intro">
           <a href="#" onClick={this.onClick}>Login with github</a>
         </p>
+        <button type="button" onClick={this.test} >test</button>
       </div>
     );
   }

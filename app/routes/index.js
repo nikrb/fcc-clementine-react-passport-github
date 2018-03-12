@@ -40,6 +40,12 @@ module.exports = function (app, passport) {
 	// 		res.json(req.user.github);
 	// 	});
 
+	app.route('/test')
+		.get((req, res, next) => {
+			console.log("auth test fetch route");
+			res.json({ success: true });
+		});
+
 	app.route('/auth/github')
 		.get((req, res, next) => {
 			console.log('get auth github');
@@ -48,10 +54,19 @@ module.exports = function (app, passport) {
 		passport.authenticate('github'));
 
 	app.route('/auth/github/callback')
-		.get(passport.authenticate('github', {
-			successRedirect: '/',
-			failureRedirect: '/'
-		}));
+    .get(
+      passport.authenticate('github', { failureRedirect: 'http://localhost:3000' }),
+      (req, res) => {
+        // req.user gets populated by passport
+        console.log('/auth/github/callback', req.user);
+        res.redirect('http://localhost:3000');
+      }
+    );
+	// app.route('/auth/github/callback')
+	// 	.get(passport.authenticate('github', {
+	// 		successRedirect: '/',
+	// 		failureRedirect: '/'
+	// 	}));
 
 	// app.route('/api/:id/clicks')
 	// 	.get(isLoggedIn, clickHandler.getClicks)
